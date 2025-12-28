@@ -1,0 +1,5 @@
+.env
+__pycache__/
+airflow-app/logs/
+airflow-app/plugins/
+.DS_Store
