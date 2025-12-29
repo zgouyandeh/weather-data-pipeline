@@ -140,7 +140,7 @@ def load_to_snowflake_via_internal_stage():
 with DAG(
     dag_id="weather_pipeline_final",
     default_args=default_args,
-    schedule_interval=timedelta(minutes=5),
+    schedule=timedelta(minutes=5),
     max_active_runs=1, # اجازه نده بیش از یک اجرای فعال همزمان وجود داشته باشد
     catchup=False,
 ) as dag:

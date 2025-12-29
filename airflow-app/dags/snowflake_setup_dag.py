@@ -1,5 +1,6 @@
 from airflow import DAG
-from airflow.providers.snowflake.operators.snowflake import SnowflakeOperator
+from airflow.providers.snowflake.operators.snowflake import SnowflakeSqlOperator
+
 from datetime import datetime
 
 default_args = {
@@ -16,7 +17,7 @@ with DAG(
 ) as dag:
 
     # Task to create tables and schemas
-    setup_db_objects = SnowflakeOperator(
+    setup_db_objects = SnowflakeSqlOperator(
         task_id="create_snowflake_objects",
         snowflake_conn_id="snowflake_weather",
         sql="setup_snowflake.sql" # ایرفلو در پوشه /sql/ به دنبال این فایل می‌گردد
